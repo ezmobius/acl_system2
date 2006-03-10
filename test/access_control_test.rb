@@ -84,7 +84,7 @@ class AccessControlTest  < Test::Unit::TestCase
 
   def test_first
     context = { :user => User.new }
-    @handler = Caboose::RoleHandler.new(Role)
+    @handler = Caboose::RoleHandler.new
     assert @handler.process("(admin | moderator) & !blacklist", context)  
     assert @handler.process("(user | moderator) & !blacklist", context)  
     assert @handler.process("(user | moderator | user) & !blacklist", context)  
