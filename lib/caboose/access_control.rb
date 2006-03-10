@@ -22,8 +22,14 @@ module Caboose
         before_filter do |c|
           c.default_access_context = defaults
           @access = AccessSentry.new(c, actions)
-          unless @access.allowed?(c.action_name)
-            c.send(:render_text, "You have insuffient permissions to access #{c.controller_name}/#{c.action_name}")
+          if @access.allowed?(c.action_name)
+             c.send(:permission_granted)  if c.respond_to?:permission_granted
+          else    
+            if c.respond_to?:permission_denied
+              c.send(:permission_denied)
+            else  
+              c.send(:render_text, "You have insuffient permissions to access #{c.controller_name}/#{c.action_name}")
+            end
           end
         end
       end 

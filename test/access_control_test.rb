@@ -47,11 +47,11 @@ class ControllerProxy
          context[:login_time] = Time.new
       end
   
-  def access_allowed
+  def permission_granted
     true
   end
   
-  def access_denied
+  def permission_denied
     false
   end
   
