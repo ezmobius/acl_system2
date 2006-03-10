@@ -41,7 +41,7 @@ module Caboose
       if respond_to?(:retrieve_access_handler)
         @handler ||= retrieve_access_handler
       else
-        @handler ||= RoleHandler.new(Role)
+        @handler ||= RoleHandler.new
       end
     end
 

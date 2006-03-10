@@ -17,17 +17,7 @@ class User
     [OpenStruct.new(:title => 'admin'), OpenStruct.new(:title => 'user')]
   end  
 
-end    
-
-class Role
-  def self.find(*args)
-    [OpenStruct.new(:title => 'admin'), 
-     OpenStruct.new(:title => 'moderator'),
-     OpenStruct.new(:title => 'user'),
-     OpenStruct.new(:title => 'anon'),
-     OpenStruct.new(:title => 'blacklist')]
-  end
-end    
+end      
 
 class ControllerProxy
 
