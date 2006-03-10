@@ -48,12 +48,12 @@ class PostController < ApplicationController
 
   protected
 
-  def access_denied
+  def permission_denied
     flash[:notice] = "You don't have privileges to access this action"
     return redirect_to :action => 'denied'
   end
 
-  def access_allowed
+  def permission_granted
     flash[:notice] = "Welcome to the secure area of foo.com!"
   end
 
