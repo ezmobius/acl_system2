@@ -62,7 +62,7 @@ end
 There is also a helper method that can be used in the view or controller. In the view its 
 handy for conditional menus or stuff like that. 
 
-<% if restrict_to "(admin | moderator) & !blacklist" %>
+<% restrict_to "(admin | moderator) & !blacklist" do %>
   <%= link_to "Admin & Moderator only link", :action =>'foo' %>
 <% end %>
 
