@@ -34,7 +34,7 @@ class PostController < ApplicationController
                  :delete => 'admin & (!moderator & !blacklist)'
 
 There are two callback methods you can use to define your own success and failure behaviors.
-If you define access_allowed and/or access_denied  as protected methods in your controller you
+If you define permission_granted and/or permission_denied  as protected methods in your controller you
 can redirect or render and error page or whatever else you might want to do if access is allowed
 or denied.
 
