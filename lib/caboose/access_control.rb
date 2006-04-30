@@ -18,9 +18,12 @@ module Caboose
       def access_control(actions={})
         # Add class-wide permission callback to before_filter
         defaults = {}  
-        yield defaults if block_given?             
+        if block_given?
+          yield defaults 
+          default_block_given = true  
+        end        
         before_filter do |c|
-          c.default_access_context = defaults
+          c.default_access_context = defaults if default_block_given
           @access = AccessSentry.new(c, actions)
           if @access.allowed?(c.action_name)
              c.send(:permission_granted)  if c.respond_to?:permission_granted
