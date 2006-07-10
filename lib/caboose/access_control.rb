@@ -56,7 +56,7 @@ module Caboose
 
     def default_access_context
       @default_access_context ||= {}
-      @default_access_context[:user] ||= send(:current_user) if respond_to?(:current_user)
+      @default_access_context[:user] = send(:current_user) if respond_to?(:current_user)
       @default_access_context 
     end
 
