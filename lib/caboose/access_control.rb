@@ -31,7 +31,7 @@ module Caboose
             if c.respond_to?:permission_denied
               c.send(:permission_denied)
             else  
-              c.send(:render_text, "You have insuffient permissions to access #{c.controller_name}/#{c.action_name}")
+              c.send(:render, :text => "You have insuffient permissions to access #{c.controller_name}/#{c.action_name}")
             end
           end
         end
